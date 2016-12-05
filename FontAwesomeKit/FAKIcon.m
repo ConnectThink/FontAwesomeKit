@@ -141,13 +141,13 @@
     
     [self fillBackgroundForContext:context backgroundSize:imageSize];
     
-    [self.mutableAttributedString drawInRect:[self drawingRectWithImageSize:imageSize]];	
-	UIImage *iconImage = UIGraphicsGetImageFromCurrentImageContext();
-	
-	// ---------- end context ----------
-	UIGraphicsEndImageContext();
-	
-	return iconImage;
+    [self.mutableAttributedString drawInRect:CGRectMake(0, 0, imageSize.width, imageSize.height)];
+    UIImage *iconImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // ---------- end context ----------
+    UIGraphicsEndImageContext();
+    
+    return iconImage;
 }
 
 - (void)fillBackgroundForContext:(CGContextRef)context backgroundSize:(CGSize)size
