@@ -148,11 +148,9 @@
 /**
  *  Draws the icon on an image. The icon will be centered horizontally and vertically by default. You can set the drawingPostionAdjustment property to adjust drawing offset.
  *
- *  @param imageSize Height and width for the image.
- *
  *  @return An image with the icon.
  */
-- (UIImage *)imageWithSize:(CGSize)imageSize;
+- (UIImage *)image;
 
 @end
 
