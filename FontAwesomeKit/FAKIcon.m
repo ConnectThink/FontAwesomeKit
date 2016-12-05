@@ -132,16 +132,19 @@
 
 #pragma mark - Image Drawing
 
-- (UIImage *)imageWithSize:(CGSize)imageSize
+- (UIImage *)image
 {
-    UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0.0);
-	
-	// ---------- begin context ----------
-	CGContextRef context = UIGraphicsGetCurrentContext();
+    CGSize iconSize = [self.mutableAttributedString size];
     
-    [self fillBackgroundForContext:context backgroundSize:imageSize];
+    UIGraphicsBeginImageContextWithOptions(iconSize, NO, 0.0);
     
-    [self.mutableAttributedString drawInRect:CGRectMake(0, 0, imageSize.width, imageSize.height)];
+    // ---------- begin context ----------
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    [self fillBackgroundForContext:context backgroundSize:iconSize];
+    
+    [self.mutableAttributedString drawInRect:CGRectMake(0, 0, iconSize.width, iconSize.height)];
+    
     UIImage *iconImage = UIGraphicsGetImageFromCurrentImageContext();
     
     // ---------- end context ----------
